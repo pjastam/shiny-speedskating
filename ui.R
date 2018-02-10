@@ -18,7 +18,7 @@ shinyUI(fluidPage(
                   selected = 500),
       
       tags$div(em('You can find the source code of this demo app',
-      tags$a(href="https://bitbucket.org/stamonline/shiny-speedskating", "here!")))
+      tags$a(href="https://github.com/pjastam/shiny-speedskating", "here!")))
     ),
     
     mainPanel(
