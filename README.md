@@ -7,7 +7,6 @@
 
   - [What is this repository for?](#goal)
   - [Demo](#demo)
-  - [Installation](#install)
   - [How to use](#usage)
   - [Ideas for improvement](#new-ideas)
   - [Who do you talk to?](#contact)
@@ -44,15 +43,6 @@ The 'shiny-speedskating' app generates a benchmark for current track times of ju
 <h2 id="demo">Demo</h2>
 
 [Click here](https://pjastam.shinyapps.io/speedskating/) to view an interactive demo of `shiny-speedskating`.
-
-<h2 id="install">Installation</h2>
-
-The `shiny-speedskating` demo app is available through [Bitbucket](http://bitbucket.org/). To install the latest development version from Bitbucket in your R or RStudio IDE:
-
-``` r
-install.packages("devtools")
-devtools::install_bitbucket("stamonline/shiny-speedskating")
-```
 
 <h2 id="usage">How to use</h2>
 
