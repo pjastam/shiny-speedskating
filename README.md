@@ -1,12 +1,14 @@
 # Speed skating talent management app
 
-> *Copyright 2017 [Piet Stam](http://www.pietstam.nl). Licensed under
-> the GNU Lesser General Public License v3.0.*
+> *Copyright 2017 [Piet Stam](http://www.pietstam.nl). Licensed under the GNU
+> Lesser General Public License v3.0. The README.md documentation file is licensed
+> under the Creative Commons [Attribution-ShareAlike 4.0 International-license](http://creativecommons.org/licenses/by-sa/4.0/).*
 
 ## Table of contents
 
   - [What is this repository for?](#goal)
   - [Demo](#demo)
+  - [Installation](#install)
   - [How to use](#usage)
   - [Ideas for improvement](#new-ideas)
   - [Who do you talk to?](#contact)
@@ -43,6 +45,14 @@ The 'shiny-speedskating' app generates a benchmark for current track times of ju
 <h2 id="demo">Demo</h2>
 
 [Click here](https://pjastam.shinyapps.io/speedskating/) to view an interactive demo of `shiny-speedskating`.
+
+<h2 id="install">Installation</h2>
+
+The `shiny-speedskating` demo app is available through [GitHub](https://github.com/). To install the latest development version from GitHub in your R or RStudio IDE:
+
+``` r
+install_github("pjastam/shiny-speedskating")
+```
 
 <h2 id="usage">How to use</h2>
 
