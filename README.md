@@ -1,7 +1,7 @@
-# Speed skating talent management app
+# Speed skating app for talent management & scouting
 
 > *Copyright 2017 [Piet Stam](http://www.pietstam.nl). Licensed under the GNU
-> Lesser General Public License v3.0. The README.md documentation file is licensed
+> Lesser General Public License v3.0. The README.md documentation is licensed
 > under the Creative Commons [Attribution-ShareAlike 4.0 International-license](http://creativecommons.org/licenses/by-sa/4.0/).*
 
 ## Table of contents
@@ -16,7 +16,7 @@
 <h2 id="goal">What is this repository for?</h2>
 
 ### Quick summary
-`shiny-speedskating` constitutes the front-end of an app for talent management by scouts, trainers and coaches of speed skating teams. [Speed skating](https://en.wikipedia.org/wiki/Speed_skating) is a popular winter sport in [the Netherlands](https://en.wikipedia.org/wiki/Netherlands).
+`shiny-speedskating` constitutes the front-end of an app for talent management & scouting of junior speed skaters. [Speed skating](https://en.wikipedia.org/wiki/Speed_skating) is a popular winter sport in [the Netherlands](https://en.wikipedia.org/wiki/Netherlands).
 
 ### Version
 1.0
@@ -30,11 +30,11 @@ There are two explanations why the probability of strong competition for high po
 2. The junior speed skaters are assigned to a number of training facilities which are distributed across the country. Thus, within each training facility, the number of junior speed skaters with the potential of a professional career is even smaller.
 
 ### How does this app help?
-As explained above, the probability of strong competition heavily depends on the year of birth and place of residence (and therefore, assignment to a specific training district) of a high potential. Obviously, one step towards better talent management is to pool and monitor the results of junior speed skaters of a given age across all training districts. A further step would be to make comparisons across generations of high potential speed skaters. Although both kinds of comparison are facilitated by the 'shiny-speedskating' app, the true added value of this app derives from facilitating the across generations comparison.
+As explained above, the probability of strong competition heavily depends on the year of birth and place of residence (and therefore, assignment to a specific training district) of a high potential. Obviously, one step towards better talent management is to pool and monitor the results of junior speed skaters of a given age across all training districts. A further step would be to make comparisons across generations of high potential speed skaters by adjusting the track times for birth date differences. Although both kinds of comparison are facilitated by the 'shiny-speedskating' app, the true added value of this app derives from facilitating the across generations comparison.
 
-More specifically, the 'shiny-speedskating' app graphs the best monthly track times of junior speed skaters and the best monthly track times of professional speed skaters, thereby adjusting for the difference in dates of birth. We chose to use best monthly track times in order to reduce the influence of statistical coincidence (alternatively, one might choose for average monthly track times). Note that as we adjust for date of birth instead of year of birth, we also take account of differences in development among speed skaters within the same year of birth.
+More specifically, the 'shiny-speedskating' app graphs the best monthly track times of junior speed skaters and the best monthly track times of professional speed skaters, after adjusting for the difference in dates of birth. We chose to use best monthly track times in order to reduce the influence of statistical coincidence (alternatively, one might choose for average monthly track times). Note that as we adjust for date of birth instead of year of birth, we also take account of differences in development among speed skaters within the same year of birth.
 
-The 'shiny-speedskating' app generates a benchmark for current track times of junior speed skaters. But in addition it can also be used as a reference career path in terms of future track times. The reason is that the track times of the professional speed skaters at later ages and during their professional career are also graphed with this app. In this way, more recent track times of professional speed skaters can be used for the career development of high potential junior speed skaters too.
+The 'shiny-speedskating' app generates a benchmark for observed track times of junior speed skaters. A junior speed skater performs well if these observed track times are equal to or better than that of the profession speed skater in his/her younger years. In addition, the graph of the professional speed skater may serve as a reference career path to the junior speed skater, as the graph also depicts the track times of the professional speed skater at later ages than that of the junior speed skater. In this way, the app can be used for future career development of high potential junior speed skaters too. Of course, the aforementioned features of the app can be used both for talent management and talent scouting.
 
 ### Data sources
 
