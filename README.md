@@ -9,7 +9,6 @@
   - [What is this repository for?](#goal)
   - [Demo](#demo)
   - [Installation](#install)
-  - [How to use](#usage)
   - [Ideas for improvement](#new-ideas)
   - [Who do you talk to?](#contact)
 
@@ -44,7 +43,9 @@ The 'shiny-speedskating' app generates a benchmark for observed track times of j
 
 <h2 id="demo">Demo</h2>
 
-[Click here](https://pjastam.shinyapps.io/speedskating/) to view an interactive demo of `shiny-speedskating`.
+[Click here](https://pjastam.shinyapps.io/speedskating/) to view an interactive demo of `shiny-speedskating`. You can choose a junior speed skater in the first select box and a professional speed skater in the second select box. The input checkbox is checked by default, in which case the difference in birth dates between these two speedskaters is adjusted for. The graph is redrawn each time one of these three choices is altered.
+
+We used a small sample of data to illustrate the workings of this app. Note that we chose relatively young professional speed skaters for this demo, because the track times of the elderly professionals in their younger years were not available as open data to the best of our knowledge.
 
 <h2 id="install">Installation</h2>
 
@@ -53,14 +54,6 @@ The `shiny-speedskating` demo app is available through [GitHub](https://github.c
 ``` r
 install_github("pjastam/shiny-speedskating")
 ```
-
-<h2 id="usage">How to use</h2>
-
-Choose a junior speed skater in the first select box and a professional speed skater in the second select box.
-
-The input checkbox is checked by default, in which case the difference in birth dates between these two speedskaters is adjusted for.
-
-The graph is redrawn each time one of these three choices is altered.
 
 <h2 id="new-ideas">Ideas for improvement</h2>
 
