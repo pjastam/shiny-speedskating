@@ -49,11 +49,44 @@ We used a small sample of data to illustrate the workings of this app. Note that
 
 <h2 id="install">Installation</h2>
 
-The `shiny-speedskating` demo app is available through [GitHub](https://github.com/). To install the latest development version from GitHub in your R or RStudio IDE:
+<h3>R and RStudio IDE</h3>
+The `shiny-speedskating` demo app is available through [GitHub](https://github.com/). To install the latest development version from my [GitHub](https://github.com/pjastam/shiny-speedskating) repository in your R or RStudio IDE:
 
 ``` r
 install_github("pjastam/shiny-speedskating")
 ```
+
+<h3>Shiny server</h3>
+If you want to install the `shiny-speedskating` demo app at a Shiny server, you can retrieve the code from GitHub:
+
+``` r
+git clone https://github.com/pjastam/shiny-speedskating.git
+```
+
+<h3>Docker</h3>
+
+If you want to build a Docker image yourself and run it in a container, just fire up your Linux terminal and enter the following commands:
+
+``` r
+cd /srv/shinyapps/
+git clone https://github.com/pjastam/shiny-speedskating.git
+cd /srv/shinyapps/shiny-speedskating
+docker build -t pjastam/shiny-speedskating:latest .
+docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating:latest
+```
+
+Now go to your webbrowser and enter the IP address of your server to verify that the `shiny-speedskating` demo app is running. Note that a prerequisite to this workflow is that Docker must be installed at your server.
+
+<h3>Docker Hub</h3>
+
+You might prefer the easiest way to run the `shiny-speedskating` demo app in a Docker container. To this end, I pushed a ready-to-use image to [Docker Hub](https://hub.docker.com/) which you can find [here](https://hub.docker.com/r/pjastam/shiny-speedskating/). Enter the following commands in your Linux terminal and your done:
+
+``` r
+docker pull pjastam/shiny-speedskating
+docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating:latest
+```
+
+Now go to your webbrowser and enter the IP address of your server to verify that the `shiny-speedskating` demo app is running. Note that a prerequisite to this workflow is that Docker must be installed at your server.
 
 <h2 id="new-ideas">Ideas for improvement</h2>
 
