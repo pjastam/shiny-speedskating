@@ -97,7 +97,7 @@ docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating
 
 Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the IP address of your VPS to verify that the `shiny-speedskating` demo app is running.
 
-You can run the container at other ports. It can happen that there is some service running at PORT 80, as Apache ou Nginx. To run the app at PORT 3838 for example, you can use:
+You can run the container at other ports. It can happen that there is some service running at PORT 80, as Apache or Nginx. To run the app at PORT 3838 for example, you can use:
 
 docker run --rm -p 3838:80 pjastam/shiny-wordcloud
 
