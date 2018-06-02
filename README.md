@@ -9,6 +9,7 @@
   - [What is this repository for?](#goal)
   - [Demo](#demo)
   - [Installation](#install)
+  - [Usage](#usage)
   - [Ideas for improvement](#new-ideas)
   - [Who do you talk to?](#contact)
 
@@ -71,22 +72,30 @@ If you want to build a Docker image yourself and run it in a container, just fir
 cd /srv/shinyapps/
 git clone https://github.com/pjastam/shiny-speedskating.git
 cd /srv/shinyapps/shiny-speedskating
-docker build -t pjastam/shiny-speedskating:latest .
-docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating:latest
+docker build -t pjastam/shiny-speedskating .
 ```
 
-Now go to your webbrowser and enter the IP address of your server to verify that the `shiny-speedskating` demo app is running. Note that a prerequisite to this workflow is that Docker must be installed at your server.
+Note that a prerequisite to this workflow is that Docker must be installed.
 
 <h3>Docker Hub</h3>
 
-You might prefer the easiest way to run the `shiny-speedskating` demo app in a Docker container. To this end, I pushed a ready-to-use image to [Docker Hub](https://hub.docker.com/) which you can find [here](https://hub.docker.com/r/pjastam/shiny-speedskating/). Enter the following commands in your Linux terminal and your done:
+You might prefer the easiest way to run the `shiny-speedskating` demo app in a Docker container. To this end, I pushed a ready-to-use image to [Docker Hub](https://hub.docker.com/) which you can find [here](https://hub.docker.com/r/pjastam/shiny-speedskating/). Enter the following commands in your Linux terminal and you're done:
 
 ``` r
 docker pull pjastam/shiny-speedskating
-docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating:latest
 ```
 
-Now go to your webbrowser and enter the IP address of your server to verify that the `shiny-speedskating` demo app is running. Note that a prerequisite to this workflow is that Docker must be installed at your server.
+Note that a prerequisite to this workflow is that Docker must be installed.
+
+<h2 id="usage">Usage</h2>
+
+To run this Shiny App:
+
+``` r
+docker run -d -p 80:3838 --name speedskating pjastam/shiny-speedskating
+```
+
+Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the IP address of your VPN to verify that the `shiny-speedskating` demo app is running.
 
 <h2 id="new-ideas">Ideas for improvement</h2>
 
