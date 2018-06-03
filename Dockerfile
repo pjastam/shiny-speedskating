@@ -21,8 +21,8 @@ RUN install2.r --error \
 COPY global.R /srv/shiny-server/
 COPY server.R /srv/shiny-server/
 COPY ui.R /srv/shiny-server/
-COPY data/ /srv/shiny-server/
-COPY functions/ /srv/shiny-server/
+COPY data/ /srv/shiny-server/data/
+COPY functions/ /srv/shiny-server/functions/
 
 ## updated config file
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
