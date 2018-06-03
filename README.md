@@ -81,7 +81,7 @@ The Docker files are based on those in the [Example dockerized Shiny app](https:
 
 <h2 id="usage">Usage</h2>
 
-To run this Shiny app in a Docker container on your computer as follows:
+To run this Shiny app in a Docker container on your computer:
 
 ``` r
 docker run -d -p 80:80 pjastam/shiny-speedskating
