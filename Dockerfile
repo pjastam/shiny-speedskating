@@ -18,11 +18,17 @@ RUN install2.r --error \
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
 ## Assume shiny app is in main dir of Github repository
-COPY global.R /srv/shiny-server/shiny-speedskating/
-COPY server.R /srv/shiny-server/shiny-speedskating/
-COPY ui.R /srv/shiny-server/shiny-speedskating/
-COPY ./data /srv/shiny-server/shiny-speedskating/data/
-COPY ./functions /srv/shiny-server/shiny-speedskating/functions/
+COPY global.R /srv/shiny-server/
+COPY server.R /srv/shiny-server/
+COPY ui.R /srv/shiny-server/
+COPY data/ /srv/shiny-server/
+COPY functions/ /srv/shiny-server/
 
 ## updated config file
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
+
+EXPOSE 80
+
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+CMD ["/usr/bin/shiny-server.sh"]

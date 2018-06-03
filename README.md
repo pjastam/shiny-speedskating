@@ -66,33 +66,25 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 <h3>Docker</h3>
 
-If you want to build a Docker image yourself and run it in a container, just fire up your Linux terminal and enter the following commands:
+If order to build the Docker image, just fire up your Linux terminal and enter the following commands:
 
 ``` r
 cd /srv/shinyapps/
-git clone https://github.com/pjastam/shiny-speedskating.git
+git clone -b flaviobarros https://github.com/pjastam/shiny-speedskating.git
 cd /srv/shinyapps/shiny-speedskating
 docker build -t pjastam/shiny-speedskating .
 ```
 
-Note that a prerequisite to this workflow is that Docker must be installed. The Dockerfile and shiny-server.conf files are coded along the lines of those of the [Shiny dashboard depicting USA Trade data](https://github.com/mtoto/markets_shiny). One of the consequences is that the app will run on the standard Shiny server port 3838. 
-
-<h3>Docker Hub</h3>
-
-You might prefer the easiest way to run the `shiny-speedskating` demo app in a Docker container. To this end, I pushed a ready-to-use image to [Docker Hub](https://hub.docker.com/) which you can find [here](https://hub.docker.com/r/pjastam/shiny-speedskating/). Enter the following commands in your Linux terminal and you're done:
-
-``` r
-docker pull pjastam/shiny-speedskating
-```
-
 Note that a prerequisite to this workflow is that Docker must be installed.
+
+The Docker files are based on those in the [Example dockerized Shiny app](https://github.com/flaviobarros/shiny-wordcloud) repository, with one exception: the image starts building from rocker/shiny instead of r-base. This part of the Dockerfile is coded along the lines of the Dockerfile in the [Shiny dashboard depicting USA Trade data](https://github.com/mtoto/markets_shiny) repository.
 
 <h2 id="usage">Usage</h2>
 
-This Shiny app runs on port 3838. To run this Shiny app on port 80 on your computer:
+To run this Shiny app on your computer:
 
 ``` r
-docker run -d -p 80:3838 pjastam/shiny-speedskating
+docker run -d -p 80:80 pjastam/shiny-speedskating
 ```
 
 Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the IP address of your VPS to verify that the Shiny app is running.
@@ -100,7 +92,7 @@ Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the I
 You can run the container on other ports. It can happen that there is some service running on port 80, as Apache or Nginx. To run the app on port 3838 for example, you can use:
 
 ``` r
-docker run --rm -p 3838:3838 pjastam/shiny-speedskating
+docker run --rm -p 3838:80 pjastam/shiny-speedskating
 ```
 
 Now go to your webbrowser and enter http://127.0.0.1:3838/, http://localhost:3838/ or http://IPADDRESS:3838/ (where IPADDRESS is the IP address of your VPS) to verify that the Shiny app is running.
