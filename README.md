@@ -61,7 +61,7 @@ install_github("pjastam/shiny-speedskating")
 If you want to install the `shiny-speedskating` demo app at a Shiny server, you can retrieve the code from GitHub:
 
 ``` r
-git clone https://github.com/pjastam/shiny-speedskating.git
+git clone -b flaviobarros https://github.com/pjastam/shiny-speedskating.git
 ```
 
 <h3>Docker</h3>
