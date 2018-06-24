@@ -87,7 +87,7 @@ To run this Shiny app in a Docker container on your computer:
 docker run -d -p 80:80 pjastam/shiny-speedskating
 ```
 
-Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the IP address of your VPS to verify that the Shiny app is running. Note that you will probably want to run the container in detached mode (-d) in a real deployment scenario. Alternatively, you could choose to automatically remove the container (--rm) when it exits.
+Now go to your webbrowser and enter http://127.0.0.1/, http://localhost or the IP address of your VPS to verify that the Shiny app is running.
 
 You can run the container on other ports as well. It can happen that there is some service running on port 80, as Apache or Nginx. To run the app on port 3838 for example, you can use:
 
@@ -96,6 +96,8 @@ docker run -d -p 3838:80 pjastam/shiny-speedskating
 ```
 
 Now go to your webbrowser and enter http://127.0.0.1:3838/, http://localhost:3838/ or http://IPADDRESS:3838/ (where IPADDRESS is the IP address of your VPS) to verify that the Shiny app is running.
+
+Note that you will probably want to run the container in detached mode (-d) in a real deployment scenario. Alternatively, you could choose to automatically remove the container (--rm) when it exits.
 
 <h2 id="new-ideas">Ideas for improvement</h2>
 
