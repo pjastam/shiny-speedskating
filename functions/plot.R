@@ -9,7 +9,7 @@ f_plot_times <- function(db,title,set_of_breaks,set_of_labels) {
                               gp=gpar(col="grey", fontsize=10, fontface="italic")))
   
   library(ggplot2)
-  pl <- ggplot(data=db,aes(x=times.date, y=times.time, group=skater, colour=skater)) +
+  pl <- ggplot(data=db,aes(x=times.date, y=as.POSIXct(times.time), group=skater, colour=skater)) +
     ggtitle(bquote(atop(.(plot.title), atop(italic(.(plot.subtitle)), "")))) +
     labs(x = "", y = "Best monthly track times") +
     geom_step(size=.5) +
