@@ -1,3 +1,7 @@
+#Load libraries
+library(shiny)
+library(shinycssloaders, quietly = TRUE, warn.conflicts = FALSE)
+
 #Load subroutine to construct the graph
 source("functions/plot.R")
 

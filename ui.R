@@ -22,7 +22,7 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      plotOutput("timesPlot")
+      withSpinner(plotOutput("timesPlot"),5, color="#c0c0c0")
     )
 
   )
