@@ -13,7 +13,9 @@ RUN apt-get update && apt-get install -y \
 ## Install packages from CRAN
 RUN install2.r --error \ 
     -r 'http://cran.rstudio.com' \
+	grid \
 	ggplot2 \
+	shinycssloaders \
     ## clean up
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
