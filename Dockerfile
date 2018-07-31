@@ -18,12 +18,8 @@ RUN install2.r --error \
     ## clean up
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
 
-## Assume shiny app is in main dir of Github repository
-COPY global.R /srv/shiny-server/
-COPY server.R /srv/shiny-server/
-COPY ui.R /srv/shiny-server/
-COPY data/ /srv/shiny-server/data/
-COPY functions/ /srv/shiny-server/functions/
+## Assume shiny app is in *sub* folder of Github repository
+COPY app /srv/shiny-server
 
 ## updated config file
 COPY shiny-server.conf  /etc/shiny-server/shiny-server.conf
