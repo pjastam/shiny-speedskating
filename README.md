@@ -23,7 +23,7 @@ This app compares the best monthly track times of speed skaters whose names are 
 
 <h2 id="demo">Demo</h2>
 
-[Click here](https://pjastam.shinyapps.io/shiny-speedskating-os2018/) to view an interactive demo of the 1000m version of this app. Unfortunately, we did not create a 500m demo (yet?).
+[Click here](https://pjastam.shinyapps.io/shiny-speedskating-os2018/) to view an interactive demo of the 1000m version of this app. Unfortunately, the 500m demo is not available anymore. Anyhow, after playing around somewhat with the 500m version of the app, I published my prediction at [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6370940182648233984).
 
 <h2 id="contact">Who do you talk to?</h2>
 
