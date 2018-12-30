@@ -23,7 +23,7 @@ This app compares the best monthly track times of speed skaters whose names are 
 
 <h2 id="demo">Demo</h2>
 
-[Click here](https://pjastam.shinyapps.io/shiny-speedskating-os2018/) to view an interactive demo.
+[Click here](https://pjastam.shinyapps.io/shiny-speedskating-os2018/) to view an interactive demo. After playing around somewhat, I published my prediction at [LinkedIn](https://www.linkedin.com/feed/update/urn:li:activity:6371469200883613697).
 
 <h2 id="contact">Who do you talk to?</h2>
 
