@@ -1,7 +1,3 @@
-#Load libraries
-library(shiny)
-library(shinycssloaders, quietly = TRUE, warn.conflicts = FALSE)
-
 #Load subroutine to construct the graph
 source("functions/plot.R")
 
@@ -12,7 +8,7 @@ source("functions/adjust.R")
 assign("skaters_id",readRDS(file = ("data/skaters_id.rds")))
 
 #Initialize the track distances
-distance <- data.frame(distance = c(500,1000,1500,3000))
+distance <- data.frame(distance = c(1000))
 
 #Load the track times (for all speed skaters and all distances)
 for (k in 1:nrow(distance)) {

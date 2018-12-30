@@ -2,7 +2,7 @@ f_plot_times <- function(db,title,set_of_breaks,set_of_labels) {
   db$skater <- as.factor(db$skater)
 
   plot.title = title  
-  plot.subtitle = "Data source: speedskatingresults.com, adjusted for difference in birth dates"
+  plot.subtitle = "Data source: speedskatingresults.com"
   
   library(grid)
   my_grob = grobTree(textGrob("Piet Stam (c) 2017", x=0.1,  y=0.95, hjust=0,
