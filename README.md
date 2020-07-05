@@ -124,21 +124,37 @@ knowledge.
 
 ## Installation
 
-### R and RStudio IDE
+### RStudio IDE
 
-The `shiny-speedskating` demo app is available through
-[GitHub](https://github.com/). To install the latest development version
-from my [GitHub](https://github.com/pjastam/shiny-speedskating)
-repository in your R or RStudio IDE:
+To load the latest development version from my
+[GitHub](https://github.com/pjastam/shiny-speedskating) repository into
+your RStudio IDE, go to the File menu in RStudio and from there select
+consecutively:
 
 ``` r
-library(devtools)
-install_github("pjastam/shiny-speedskating")
+New Project... > 
+Version Control > 
+Git >
+Repository URL: pjastam/shiny-speedskating >
+Project directory name: you may keep the preselection or change it if you like >
+Create directory as a subdirectory of: you may keep the preselection or Browse to antoher directory if you like > 
+Open in new session: you may select this if you like >
+Create Project
 ```
+
+Now run the Shiny app as follows:
+
+``` r
+runApp("app/")
+```
+
+Note that we assume here that the current working directory is set to
+the main directory of the project directory. So from there, the command
+above calls the files that are located in the app subdirectory.
 
 ### Shiny server
 
-If you want to install the `shiny-speedskating` demo app at a Shiny
+If you want to install the `shiny-speedskating` demo app on your Shiny
 server, you can retrieve the code from GitHub:
 
 ``` r
