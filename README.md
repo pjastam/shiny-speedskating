@@ -135,7 +135,7 @@ consecutively:
 New Project... > 
 Version Control > 
 Git >
-Repository URL: pjastam/shiny-speedskating >
+Repository URL: https://github.com/pjastam/shiny-speedskating >
 Project directory name: you may keep the preselection or change it if you like >
 Create directory as a subdirectory of: you may keep the preselection or Browse to antoher directory if you like > 
 Open in new session: you may select this if you like >
