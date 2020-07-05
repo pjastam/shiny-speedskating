@@ -57,6 +57,7 @@ We used a small sample of data to illustrate the workings of this app. Note that
 The `shiny-speedskating` demo app is available through [GitHub](https://github.com/). To install the latest development version from my [GitHub](https://github.com/pjastam/shiny-speedskating) repository in your R or RStudio IDE:
 
 ``` r
+library(devtools)
 install_github("pjastam/shiny-speedskating")
 ```
 
@@ -69,7 +70,7 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
-If order to build the Docker image, just fire up your Linux terminal and enter the following commands:
+In order to build the Docker image, just fire up your Linux terminal and enter the following commands:
 
 ``` r
 cd /srv/shinyapps/

@@ -132,6 +132,7 @@ from my [GitHub](https://github.com/pjastam/shiny-speedskating)
 repository in your R or RStudio IDE:
 
 ``` r
+library(devtools)
 install_github("pjastam/shiny-speedskating")
 ```
 
@@ -146,7 +147,7 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
-If order to build the Docker image, just fire up your Linux terminal and
+In order to build the Docker image, just fire up your Linux terminal and
 enter the following commands:
 
 ``` r
