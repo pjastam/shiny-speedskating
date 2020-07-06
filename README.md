@@ -4,8 +4,17 @@ Piet Stam
 July 5, 2020
 
   - [What is this repository for?](#what-is-this-repository-for)
+      - [Quick summary](#quick-summary)
+      - [Version](#version)
+      - [Motivation](#motivation)
+      - [Explanation](#explanation)
+      - [How does this app help?](#how-does-this-app-help)
+      - [Data sources](#data-sources)
   - [Demo](#demo)
   - [Installation](#installation)
+      - [RStudio IDE](#rstudio-ide)
+      - [Shiny server](#shiny-server)
+      - [Docker](#docker)
   - [Usage](#usage)
   - [Ideas for improvement](#ideas-for-improvement)
   - [Who do you talk to?](#who-do-you-talk-to)
@@ -163,6 +172,8 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
+#### Deploy manually
+
 In order to build the Docker image, just fire up your Linux terminal and
 enter the following commands:
 
@@ -182,6 +193,18 @@ one exception: the image starts building from rocker/shiny instead of
 r-base. This part of the Dockerfile is coded along the lines of the
 Dockerfile in the [Shiny dashboard depicting USA Trade
 data](https://github.com/mtoto/markets_shiny) repository.
+
+#### Deploy programmatically
+
+If you do not want to deploy your Docker app manually, there is a way
+out. We included example code to programmatically (1) create a Digital
+Ocean server and (2) deploy your Docker app to this server. To this end,
+the [analogsea](https://github.com/sckott/analogsea) package is used.
+The example code is in the file
+
+``` r
+deploy_docker.R
+```
 
 ## Usage
 

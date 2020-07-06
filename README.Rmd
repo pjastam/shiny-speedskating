@@ -5,7 +5,7 @@ date: "July 5, 2020"
 output: 
   github_document:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -84,6 +84,8 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
+#### Deploy manually
+
 In order to build the Docker image, just fire up your Linux terminal and enter the following commands:
 
 ``` r
@@ -96,6 +98,14 @@ docker build -t pjastam/shiny-speedskating .
 Note that a prerequisite to this workflow is that Docker must be installed.
 
 The Docker files are based on those in the [Example dockerized Shiny app](https://github.com/flaviobarros/shiny-wordcloud) repository, with one exception: the image starts building from rocker/shiny instead of r-base. This part of the Dockerfile is coded along the lines of the Dockerfile in the [Shiny dashboard depicting USA Trade data](https://github.com/mtoto/markets_shiny) repository.
+
+#### Deploy programmatically
+
+If you do not want to deploy your Docker app manually, there is a way out. We included example code to programmatically (1) create a Digital Ocean server and (2) deploy your Docker app to this server. To this end, the [analogsea](https://github.com/sckott/analogsea) package is used. The example code is in the file
+
+``` r
+deploy_docker.R
+```
 
 ## Usage
 
