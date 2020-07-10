@@ -48,35 +48,34 @@ loc_keyfile = "C:\\Users\\USERNAME\\.ssh\\private.key"
 d %>% docklet_pull(repo = "pjastam/shiny-speedskating:latest",
                    ssh_user = "root",
                    keyfile = loc_keyfile)
+
 d %>% docklet_images()
 
 
 # Run the Docker image ----------------------------------------------------
 
 d %>% docklet_run(
-  repo = "pjastam/shiny-speedskating",
+  repo = "-d -p 80:80 pjastam/shiny-speedskating",
   rm = "TRUE",
   ssh_user = "root",
   keyfile = loc_keyfile
 )
 
+
 # Check the list of containers after escaping ------------------------------------
 
-d %>% docklet_ps()
+d %>% docklet_ps(all = TRUE)
 
 # Stop containers running -------------------------------------------------
 
 d %>% docklet_stop(container = c(
-  "7aed473258f6",
-  "88d596fc5c16",
-  "4115717e5f5f",
-  "566cede8ab58"
+  "6730ccbe8532"
 ))
 
 
 # Remove inactive containers ----------------------------------------------
 
-d %>% docklet_rm()
+d %>% docklet_rm("6730ccbe8532")
 
 # Delete the droplet alltogether ----------------------------------------
 
