@@ -1,7 +1,7 @@
 Speed skating app for talent scouting & development
 ================
 Piet Stam
-July 5, 2020
+July 21, 2020
 
   - [What is this repository for?](#what-is-this-repository-for)
       - [Quick summary](#quick-summary)
@@ -11,11 +11,13 @@ July 5, 2020
       - [How does this app help?](#how-does-this-app-help)
       - [Data sources](#data-sources)
   - [Demo](#demo)
-  - [Installation](#installation)
+  - [Deploy manually](#deploy-manually)
       - [RStudio IDE](#rstudio-ide)
       - [Shiny server](#shiny-server)
       - [Docker](#docker)
-  - [Usage](#usage)
+  - [Deploy programmatically](#deploy-programmatically)
+      - [Shiny server](#shiny-server-1)
+      - [Docker](#docker-1)
   - [Ideas for improvement](#ideas-for-improvement)
   - [Who do you talk to?](#who-do-you-talk-to)
 
@@ -131,7 +133,7 @@ demo, because the track times of the elderly professionals in their
 younger years were not available as open data to the best of our
 knowledge.
 
-## Installation
+## Deploy manually
 
 ### RStudio IDE
 
@@ -172,8 +174,6 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
-#### Deploy manually
-
 In order to build the Docker image, just fire up your Linux terminal and
 enter the following commands:
 
@@ -194,21 +194,7 @@ r-base. This part of the Dockerfile is coded along the lines of the
 Dockerfile in the [Shiny dashboard depicting USA Trade
 data](https://github.com/mtoto/markets_shiny) repository.
 
-#### Deploy programmatically
-
-If you do not want to deploy your Docker app manually, there is a way
-out. We included example code to programmatically (1) create a Digital
-Ocean server and (2) deploy your Docker app to this server. To this end,
-the [analogsea](https://github.com/sckott/analogsea) package is used.
-The example code is in the file
-
-``` r
-deploy_docker.R
-```
-
-## Usage
-
-To run this Shiny app in a Docker container on your computer:
+Now run this Shiny app in a Docker container:
 
 ``` r
 docker run -d -p 80:80 pjastam/shiny-speedskating
@@ -233,6 +219,32 @@ the IP address of your VPS) to verify that the Shiny app is running.
 Note that you will probably want to run the container in detached mode
 (-d) in a real deployment scenario. Alternatively, you could choose to
 automatically remove the container (–rm) when it exits.
+
+## Deploy programmatically
+
+### Shiny server
+
+If you do not want to deploy your Shiny app manually, there is a way
+out. We included example code to programmatically (1) create a Digital
+Ocean Shiny server and (2) deploy the app to this server. To this end,
+the [analogsea](https://github.com/sckott/analogsea) package is used.
+The example code is in the file
+
+``` r
+deploy_shinyserver.R
+```
+
+### Docker
+
+If you do not want to deploy your Docker app manually, there is a way
+out. We included example code to programmatically (1) create a Digital
+Ocean Docker server and (2) deploy your app to this server. To this end,
+the [analogsea](https://github.com/sckott/analogsea) package is used.
+The example code is in the file
+
+``` r
+deploy_docker.R
+```
 
 ## Ideas for improvement
 
