@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 `shiny-speedskating` constitutes the front-end of an app for talent scouting & development of junior speed skaters. [Speed skating](https://en.wikipedia.org/wiki/Speed_skating) is a popular winter sport in [the Netherlands](https://en.wikipedia.org/wiki/Netherlands).
 
 ### Version
-1.0
+1.3
 
 ### Motivation
 The reason for building this app is that talent scouting & development of junior speed skaters with the potential to become a professional athlete may be hampered by a lack of strong(er) competition from their same age peers during their daily training routine. As a consequence, outperformance of these peers may not be a good indicator of the potential of a junior speed skater to become a professional. A better indicator might be the performance of professional speeds skaters during the days that they were of the same age as the junior speed skater.
