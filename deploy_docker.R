@@ -14,7 +14,6 @@ your_repo_name <- "pjastam/shiny-speedskating:latest"
 
 # Set names stored at your client
 
-your_client_username <- "test-username" # one of the subdirs of C:\Users at a Windows client 
 your_client_keyname <- "test-keyname" # the name of the private key at your client
 
 # Just choose some names that you like for stuff at the server
@@ -62,13 +61,11 @@ d
 # To convert a Putty key (.ppk format), open it in the PuttyGen utility
 # and go to Conversions -> Export OpenSSH.
 
-loc_keyfile = paste0("C:/Users/", your_client_username, "/.ssh/", your_client_keyname)
-
 # Download the image from Docker Hub --------------------------------------
 
 d %>% docklet_pull(repo = your_repo_name,
                    ssh_user = "root",
-                   keyfile = loc_keyfile)
+                   keyfile = ssh_home(your_client_keyname))
 
 d %>% docklet_images()
 
