@@ -15,8 +15,7 @@ assign("skaters_id",readRDS(file = ("data/skaters_id.rds")))
 distance <- data.frame(distance = c(500,1000,1500,3000))
 
 #Load the track times (for all speed skaters and all distances)
-for (k in 1:nrow(distance)) {
-  for (j in 1:nrow(skaters_id)) {
-    assign(paste0("skater_",skaters_id[j,1], "_", distance[k,]),readRDS(file = paste0("data/", "skater_", skaters_id[j,1], "_", distance[k,], ".rds")))
-  }
+myfiles <- tools::file_path_sans_ext(list.files(path="data/", pattern="skater_*.*", full.names=FALSE))
+for (i in seq_along(myfiles)) {
+  assign(myfiles[i],readRDS(file = paste0("data/", myfiles[i], ".rds")))
 }

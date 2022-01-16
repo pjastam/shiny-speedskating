@@ -54,9 +54,13 @@ d
 # stored in your local folder. Next, set the location of this folder in the
 # loc_keyfile variable below.
 
-# Note that the analogsea package assumes OpenSHH private key files. Therefore,
-# convert your private key file to the OpenSSH format if yours has a Putty
-# Private Key (.ppk) format. Use PuTTYgen to do this conversion.
+# Note that the analogsea package assumes OpenSHH private key files. 
+# This is detailed in the help menu of ssh_connect (package: ssh).  
+# If you open your private key file in a text editor, the first line 
+# must be: -----BEGIN RSA PRIVATE KEY-----.
+#
+# To convert a Putty key (.ppk format), open it in the PuttyGen utility
+# and go to Conversions -> Export OpenSSH.
 
 loc_keyfile = paste0("C:/Users/", your_client_username, "/.ssh/", your_client_keyname)
 

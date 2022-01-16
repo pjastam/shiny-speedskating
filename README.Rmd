@@ -1,7 +1,7 @@
 ---
 title: "Speed skating app for talent scouting & development"
 author: "Piet Stam"
-date: "July 5, 2020"
+date: "July 21, 2020"
 output: 
   github_document:
     toc: true
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE)
 `shiny-speedskating` constitutes the front-end of an app for talent scouting & development of junior speed skaters. [Speed skating](https://en.wikipedia.org/wiki/Speed_skating) is a popular winter sport in [the Netherlands](https://en.wikipedia.org/wiki/Netherlands).
 
 ### Version
-1.0
+1.3
 
 ### Motivation
 The reason for building this app is that talent scouting & development of junior speed skaters with the potential to become a professional athlete may be hampered by a lack of strong(er) competition from their same age peers during their daily training routine. As a consequence, outperformance of these peers may not be a good indicator of the potential of a junior speed skater to become a professional. A better indicator might be the performance of professional speeds skaters during the days that they were of the same age as the junior speed skater.
@@ -51,7 +51,7 @@ The 'shiny-speedskating' app generates a benchmark for observed track times of j
 
 We used a small sample of data to illustrate the workings of this app. Note that we chose relatively young professional speed skaters for this demo, because the track times of the elderly professionals in their younger years were not available as open data to the best of our knowledge.
 
-## Installation
+## Deploy manually
 
 ### RStudio IDE
 To load the latest development version from my [GitHub](https://github.com/pjastam/shiny-speedskating) repository into your RStudio IDE, go to the File menu in RStudio and from there select consecutively:
@@ -84,8 +84,6 @@ git clone https://github.com/pjastam/shiny-speedskating.git
 
 ### Docker
 
-#### Deploy manually
-
 In order to build the Docker image, just fire up your Linux terminal and enter the following commands:
 
 ``` r
@@ -99,17 +97,7 @@ Note that a prerequisite to this workflow is that Docker must be installed.
 
 The Docker files are based on those in the [Example dockerized Shiny app](https://github.com/flaviobarros/shiny-wordcloud) repository, with one exception: the image starts building from rocker/shiny instead of r-base. This part of the Dockerfile is coded along the lines of the Dockerfile in the [Shiny dashboard depicting USA Trade data](https://github.com/mtoto/markets_shiny) repository.
 
-#### Deploy programmatically
-
-If you do not want to deploy your Docker app manually, there is a way out. We included example code to programmatically (1) create a Digital Ocean server and (2) deploy your Docker app to this server. To this end, the [analogsea](https://github.com/sckott/analogsea) package is used. The example code is in the file
-
-``` r
-deploy_docker.R
-```
-
-## Usage
-
-To run this Shiny app in a Docker container on your computer:
+Now run this Shiny app in a Docker container:
 
 ``` r
 docker run -d -p 80:80 pjastam/shiny-speedskating
@@ -126,6 +114,24 @@ docker run -d -p 3838:80 pjastam/shiny-speedskating
 Now go to your webbrowser and enter http://127.0.0.1:3838/, http://localhost:3838/ or http://IPADDRESS:3838/ (where IPADDRESS is the IP address of your VPS) to verify that the Shiny app is running.
 
 Note that you will probably want to run the container in detached mode (-d) in a real deployment scenario. Alternatively, you could choose to automatically remove the container (--rm) when it exits.
+
+## Deploy programmatically
+
+### Shiny server
+
+If you do not want to deploy your Shiny app manually, there is a way out. We included example code to programmatically (1) create a Digital Ocean Shiny server and (2) deploy the app to this server. To this end, the [analogsea](https://github.com/sckott/analogsea) package is used. The example code is in the file
+
+``` r
+deploy_shinyserver.R
+```
+
+### Docker
+
+If you do not want to deploy your Docker app manually, there is a way out. We included example code to programmatically (1) create a Digital Ocean Docker server and (2) deploy your app to this server. To this end, the [analogsea](https://github.com/sckott/analogsea) package is used. The example code is in the file
+
+``` r
+deploy_docker.R
+```
 
 ## Ideas for improvement
 

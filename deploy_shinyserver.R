@@ -20,7 +20,7 @@ analogsea::droplets()
 
 # Do not forget to delete it with droplet_delete() when you're done
 d <- docklet_create(name = "test1",
-#                    size = "512mb",
+                    size = "512mb",
                     region = "ams3")
 d <- droplet(d$id)
 d
@@ -37,29 +37,27 @@ d
 # stored in your local folder. Next, set the location of this folder in the
 # loc_keyfile variable below.
 
-# Note that the analogsea package assumes OpenSHH private key files. Therefore,
-# convert your private key file to the OpenSSH format if yours has a Putty
-# Private Key (.ppk) format. Use PuTTYgen to do this conversion.
+# Note that the analogsea package assumes OpenSHH private key files. 
+# This is detailed in the help menu of ssh_connect (package: ssh).  
+# If you open your private key file in a text editor, the first line 
+# must be: -----BEGIN RSA PRIVATE KEY-----.
+#
+# To convert a Putty key (.ppk format), open it in the PuttyGen utility
+# and go to Conversions -> Export OpenSSH.
 
-#install.packages("ssh")
-#library(ssh)
+#loc_keyfile = "C:\\Users\\USERNAME\\.ssh\\private.key"
 
-# Download the image from Docker Hub --------------------------------------
+# Spin up a Shiny server with an app (opens in default browser) -----------
 
-# Spin up a Shiny server with an app (opens in default browser)
-path <- system.file("examples", "widgets", package = "analogsea")
+path <- "C:\\Users\\PietStam\\OneDrive\\Dev\\shiny-speedskating\\app"
 d %>% docklet_shinyapp(path)
 
-## uploading more apps - use droplet_upload, then navigate in browser
-### if you try to use docklet_shinyapp again on the same droplet, it will error
-path2 <- system.file("examples", "mpg", package = "analogsea")
-d %>% droplet_upload(path2, "/srv/shinyapps") # then go to browser
-
-##Now, try uploading my own app
-#path3 <- "C:/Users/pjast/OneDrive/Dev/GitHub/shiny-speedskating/app"
-#d %>% droplet_upload(path3, "/srv/shinyapps/shiny-speedskating/")
-path3 <- system.file("examples", "shiny-speedskating", package = "analogsea")
-d %>% droplet_upload(path3, "/srv/shinyapps")
+# Install the necessary R packages on the Docker droplet ------------------
+# First, get the container ID
+docklet_ps(d)
+#Insert the container ID in the droplet_ssh commands below
+droplet_ssh(d, paste0("docker exec 10247db77515 R -e 'install.packages(\"shinycssloaders\")'"))
+droplet_ssh(d, paste0("docker exec 10247db77515 R -e 'install.packages(\"ggplot2\")'"))
 
 # Check the list of containers after escaping ------------------------------------
 
