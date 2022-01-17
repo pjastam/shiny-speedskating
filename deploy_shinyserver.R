@@ -4,12 +4,16 @@
 ### - DEPLOY YOUR DOCKER APP 
 ### USING THE ANALOGSEA PACKAGE
 #############################################################
-  
+
 # Initialize names -------------------------------------------------------
 
 # Set the path to your app
 
 your_path <- paste0(dirname(rstudioapi::getSourceEditorContext()$path), "/app")
+
+# Set names stored at your client
+
+your_client_keyname <- "test-keyname" # the name of the private key at your client
 
 # Just choose some names that you like for stuff at the server
 
@@ -67,7 +71,7 @@ d
 ### - https://github.com/pachadotdev/analogsea/blob/master/R/docklet.R
 ##########################################################################
 
-d %>% docklet_shinyapp(your_path)
+d %>% docklet_shinyapp(your_path, keyfile = ssh_home(your_client_keyname))
 
 # Install the necessary R packages on the Docker droplet ------------------
 # First, get the container ID
