@@ -5,9 +5,21 @@
 ### USING THE ANALOGSEA PACKAGE
 #############################################################
   
+# Initialize names -------------------------------------------------------
+
+# Set the path to your app
+
+your_path <- paste0(dirname(rstudioapi::getSourceEditorContext()$path), "/app")
+
+# Just choose some names that you like for stuff at the server
+
+your_droplet_name <- "test-droplet" # this name will appear in your DO list of droplets
+
 # Make connection to DO account -------------------------------------------
 
+#install.packages("ssh")
 #install.packages("analogsea")
+library(ssh)
 library(analogsea)
 
 # Test your DO connection
@@ -19,8 +31,8 @@ analogsea::droplets()
 # Create a Docker droplet -------------------------------------------------
 
 # Do not forget to delete it with droplet_delete() when you're done
-d <- docklet_create(name = "test1",
-                    size = "512mb",
+d <- docklet_create(name = your_droplet_name,
+                    size = "s-1vcpu-1gb",
                     region = "ams3")
 d <- droplet(d$id)
 d
@@ -49,19 +61,22 @@ d
 
 # Spin up a Shiny server with an app (opens in default browser) -----------
 
-path <- "C:\\Users\\PietStam\\OneDrive\\Dev\\shiny-speedskating\\app"
-d %>% docklet_shinyapp(path)
+##########################################################################
+### SSH ISSUES: 
+### - https://github.com/ropensci/ssh/issues/24 ###
+### - https://github.com/pachadotdev/analogsea/blob/master/R/docklet.R
+##########################################################################
+
+d %>% docklet_shinyapp(your_path)
 
 # Install the necessary R packages on the Docker droplet ------------------
 # First, get the container ID
-docklet_ps(d)
-#Insert the container ID in the droplet_ssh commands below
-droplet_ssh(d, paste0("docker exec 10247db77515 R -e 'install.packages(\"shinycssloaders\")'"))
-droplet_ssh(d, paste0("docker exec 10247db77515 R -e 'install.packages(\"ggplot2\")'"))
-
-# Check the list of containers after escaping ------------------------------------
 
 d %>% docklet_ps()
+
+#Insert the container ID in the droplet_ssh commands below
+droplet_ssh(d, paste0("docker exec 34e304af9eda R -e 'install.packages(\"shinycssloaders\")'"))
+droplet_ssh(d, paste0("docker exec 34e304af9eda R -e 'install.packages(\"ggplot2\")'"))
 
 # Stop containers running -------------------------------------------------
 
