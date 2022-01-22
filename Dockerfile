@@ -1,6 +1,6 @@
 FROM rocker/shiny
 
-MAINTAINER Piet Stam "pjastam@gmail.com"
+LABEL org.opencontainers.image.authors="Piet Stam <pjastam@gmail.com>"
 
 # install R package dependencies
 RUN apt-get update && apt-get install -y \
