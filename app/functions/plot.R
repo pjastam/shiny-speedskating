@@ -1,31 +1,64 @@
-f_plot_times <- function(db,title,set_of_breaks,set_of_labels) {
-  db$skater <- as.factor(db$skater)
+f_plot_times <- function(db1,db2,title) {
+#  db$skater <- as.factor(db$skater)
 
-  plot.title = title  
-  plot.subtitle = "Data source: speedskatingresults.com, adjusted for difference in birth dates"
+plot.title = title  
+plot.subtitle = "Data source: speedskatingresults.com, adjusted for difference in birth dates"
   
-  library(grid)
-  my_grob = grobTree(textGrob("Piet Stam (c) 2017", x=0.1,  y=0.95, hjust=0,
-                              gp=gpar(col="grey", fontsize=10, fontface="italic")))
+#  library(grid)
+#  my_grob = grobTree(textGrob("Piet Stam (c) 2017", x=0.1,  y=0.95, hjust=0,
+#                              gp=gpar(col="grey", fontsize=10, fontface="italic")))
   
-  library(ggplot2)
-  pl <- ggplot(data=db,aes(x=times.date, y=strftime(times.time, format="%M:%S"), group=skater, colour=skater)) +
-    ggtitle(bquote(atop(.(plot.title), atop(italic(.(plot.subtitle)), "")))) +
-    labs(x = "", y = "Best monthly track times") +
-    geom_step(size=.5) +
-    theme(plot.title = element_text(size = 20, lineheight=.8, face="bold", color="black"),  
-          axis.title.x = element_text(size = 12, colour = "black"),  
-          axis.title.y = element_text(size = 12, colour = "black")) +
-    theme(axis.text.x=element_text(colour="black")) +
-    theme(axis.text.y=element_text(colour="black")) +
-    theme(legend.position = c(.8, .8)) + 
-    theme(legend.title = element_text(colour="grey", size=12, face="bold")) +
-    theme(legend.text = element_text(colour="grey", size=12, face="bold")) +
-    theme(plot.background=element_rect(fill="#FFFFFF")) +
-    scale_colour_discrete(name="Speedskaters",
-                          breaks=set_of_breaks,
-                          labels=set_of_labels) +
-    annotation_custom(my_grob)
-  
+library(plotly)
+pl <- plot_ly(
+  type='scatter',
+  mode='line',
+  x=db1$times.date,
+  y=strftime(db1$times.time, format="%M:%S"),
+  name=skaters_id[skaters_id["id"] == db1$skater[1]][2]
+)
+
+pl <- pl %>% add_trace(
+  type='scatter',
+  mode='line',
+  x=db2$times.date,
+  y=strftime(db2$times.time, format="%M:%S"),
+  name=skaters_id[skaters_id["id"] == db2$skater[1]][2]
+  ) 
+
+pl <- pl %>% 
+  layout(title = paste0(plot.title,"<BR>",plot.subtitle),
+         xaxis = list(title = ""),
+         yaxis = list(title = "Best monthly track times"),
+         legend=list(title=list(text='<b> Speed skaters </b>'), x = 0.8, y = 0.8)
+  )
+
+pl <- pl %>% 
+  layout(
+    updatemenus = list(
+      list(
+        y = 0.8,
+        buttons = list(
+        
+          list(method = "restyle",
+               args = list("line.color", "blue"),
+               label = "Blue"),
+        
+          list(method = "restyle",
+               args = list("line.color", "red"),
+               label = "Red"))),
+    
+      list(
+        y = 0.7,
+        buttons = list(
+          list(method = "restyle",
+               args = list("visible", list(TRUE, FALSE)),
+               label = "Sin"),
+        
+          list(method = "restyle",
+               args = list("visible", list(FALSE, TRUE)),
+               label = "Cos")))
+    )
+  )
+
   return(pl)
 }

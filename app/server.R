@@ -18,7 +18,7 @@ shinyServer(
       })
       
       output$timesPlot <- renderPlot({
-        f_plot_times(db = rbind(junior_db(), senior_db_adj()), title = paste0("Performance analysis ",skaters_id[skaters_id["id"] == input$junior][2]," vs ",skaters_id[skaters_id["id"] == input$senior][2]," (", input$distance," meter)"), set_of_breaks = c(input$junior, input$senior), set_of_labels = c(skaters_id[skaters_id["id"] == input$junior][2], skaters_id[skaters_id["id"] == input$senior][2]))
+        f_plot_times(db1 = junior_db(), db2 = senior_db_adj(), title = paste0("Performance analysis ",skaters_id[skaters_id["id"] == input$junior][2]," vs ",skaters_id[skaters_id["id"] == input$senior][2]," (", input$distance," meter)"))
       })
 
   }
