@@ -1,13 +1,31 @@
 #############################################################
 ### EXAMPLE CODE TO PROGRAMATICALLY 
-### - CREATE A DIGITAL OCEAN (DO) CLOUD SERVER AND
-### - DEPLOY YOUR DOCKER APP 
+### - CREATE A DIGITAL OCEAN (DO) CLOUD SERVER
+### - GET THE IMAGE FROM DOCKER HUB AND
+### - DEPLOY AND RUN YOUR DOCKER APP
 ### USING THE ANALOGSEA PACKAGE
 #############################################################
-  
+
+# Initialize names -------------------------------------------------------
+
+# Copy the image name from hub.docker.com
+
+your_repo_name <- "pjastam/shiny-speedskating:latest"
+
+# Set names stored at your client
+
+your_client_keyname <- "test-keyname" # the name of the private key at your client
+
+# Just choose some names that you like for stuff at the server
+
+your_droplet_name <- "test-droplet" # this name will appear in your DO list of droplets
+your_container_name <- "test-container"
+
 # Make connection to DO account -------------------------------------------
 
+#install.packages("ssh")
 #install.packages("analogsea")
+library(ssh)
 library(analogsea)
 
 # Test your DO connection
@@ -15,16 +33,14 @@ analogsea::droplets()
 # You are redirected to log into your DO account and authorize analoguesea
 # If successful, you can now send the deployment commands to DO
 
-
 # Create a Docker droplet -------------------------------------------------
 
 # Do not forget to delete it with droplet_delete() when you're done
-d <- docklet_create(name = "test1",
-                    size = "512mb",
+d <- docklet_create(name = your_droplet_name,
+                    size = "s-1vcpu-1gb",
                     region = "ams3")
 d <- droplet(d$id)
 d
-
 
 # Put OpenSSH private key in local directory ------------------------------
 
@@ -45,26 +61,23 @@ d
 # To convert a Putty key (.ppk format), open it in the PuttyGen utility
 # and go to Conversions -> Export OpenSSH.
 
-loc_keyfile = "C:\\Users\\USERNAME\\.ssh\\private.key"
-
 # Download the image from Docker Hub --------------------------------------
 
-d %>% docklet_pull(repo = "pjastam/shiny-speedskating:latest",
+d %>% docklet_pull(repo = your_repo_name,
                    ssh_user = "root",
-                   keyfile = loc_keyfile)
+                   keyfile = ssh_home(your_client_keyname))
 
 d %>% docklet_images()
-
 
 # Run the Docker image ----------------------------------------------------
 
 d %>% docklet_run(
-  repo = "-d -p 80:80 pjastam/shiny-speedskating",
+  name = your_container_name,
+  repo = paste("-d -p 80:80", your_repo_name),
   rm = "TRUE",
   ssh_user = "root",
   keyfile = loc_keyfile
 )
-
 
 # Check the list of containers after escaping ------------------------------------
 
@@ -72,19 +85,15 @@ d %>% docklet_ps(all = TRUE)
 
 # Stop containers running -------------------------------------------------
 
-d %>% docklet_stop(container = c(
-  "6730ccbe8532"
-))
-
+d %>% docklet_stop(container = your_container_name)
 
 # Remove inactive containers ----------------------------------------------
 
-d %>% docklet_rm("6730ccbe8532")
+#d %>% docklet_rm(container = your_container_name) # cmd not useful if rm = "TRUE" in docklet_run 
 
 # Delete the droplet alltogether ----------------------------------------
 
 d %>% droplet_delete()
-
 
 # References --------------------------------------------------------------
 
