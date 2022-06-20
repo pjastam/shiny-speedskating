@@ -1,13 +1,13 @@
 FROM rocker/shiny
 
-MAINTAINER Piet Stam "pjastam@gmail.com"
+LABEL org.opencontainers.image.authors="Piet Stam <pjastam@gmail.com>"
 
 # install R package dependencies
 RUN apt-get update && apt-get install -y \
     libssl-dev \
     ## clean up
     && apt-get clean \ 
-    && rm -rf /var/lib/apt/lists/ \ 
+    && rm -rf /var/lib/apt/lists/* \ 
     && rm -rf /tmp/downloaded_packages/ /tmp/*.rds
     
 ## Install packages from CRAN
